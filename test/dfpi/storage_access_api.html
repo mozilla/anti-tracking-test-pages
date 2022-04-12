@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <style>
+      .column {
+        float: left;
+        width: 25%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+        <h3>senglehardt.com</h3>
+        <h4>same-site, same-origin iframe</h4>
+        <iframe width=500 height=1000 src="set_storage_with_sa_api.html"></iframe>
+      </div>
+      <div class="column">
+        <h3>test.senglehardt.com</h3>
+        <h4>same-site, cross-origin iframe</h4>
+        <iframe width=500 height=1000 src="https://test.senglehardt.com/test/dfpi/set_storage_with_sa_api.html"></iframe>
+        <p> Access denied? Try <a rel=noopener target=_blank href="https://test.senglehardt.com/index.html">interacting with the third-party first</a>.
+        Note that this link <b>does not</b> have an opener relationship, so it shouldn't lead to storage activation by heuristic.</p>
+      </div>
+      <div class="column">
+        <h3>englehardt-tracker.com</h3>
+        <h4>different site, cross-origin iframe</h4>
+        <iframe width=500 height=1000 src="https://englehardt-tracker.com/set_storage_with_sa_api.html"></iframe>
+
+        <p> Access denied? Try <a rel=noopener target=_blank href="https://englehardt-tracker.com/index.html">interacting with the third-party first</a>.
+        Note that this link <b>does not</b> have an opener relationship, so it shouldn't lead to storage activation by heuristic.</p>
+        <br />
+
+        <p>Click
+        <button onclick="window.open('https://englehardt-tracker.com/index.html', '_blank', 'location,width=1200,height=900');">
+          here
+        </button>
+        to activate the window.open heuristic and relax storage isolation for
+        englehardt-tracker.com.
+        </p>
+      </div>
+      <div class="column">
+        <h3>known-tracker.englehardt-tracker.com</h3>
+        <h4>different site, cross-origin iframe, on blocklist</h4>
+        <iframe width=500 height=1000 src="https://known-tracker.englehardt-tracker.com/set_storage_with_sa_api.html"></iframe>
+        <p>Set urlclassifier.trackingAnnotationTable.testEntries = known-tracker.englehardt-tracker.com</p>
+        <p>Click
+        <button onclick="window.open('https://known-tracker.englehardt-tracker.com/index.html', '_blank', 'location,width=1200,height=900');">
+          here
+        </button>
+        to activate the window.open heuristic and relax storage isolation for
+        known-tracker.englehardt-tracker.com.
+        </p>
+      </div>
+    </div>
+    <br>
+    <a href="https://senglehardt.com/test/dfpi/storage_access_api.html">navigate to senglehardt.com version</a>
+    <br>
+    <a href="https://senglehardt.netlify.app/test/dfpi/storage_access_api.html">navigate to senglehardt.netlify.app version</a>
+
+  </body>
+</html>

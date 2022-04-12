@@ -1,0 +1,71 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>STP uses the following lists: (social-tracking-protection-facebook-digest256, social-tracking-protection-linkedin-digest256, social-tracking-protection-twitter-digest256). We have to check each of these individually, but if the feature is working correctly all three should be blocked (or not blocked) depending on which configuration you're testing.</p>
+
+    <h1>Tracker Blocking (i.e., resource blocking)</h1>
+    <p>Test will say "Blocked" if Firefox is blocking resources from that list.</p>
+    <p><h3>Social Tracking Protection Lists</h3></p>
+    <p>social-tracking-protection-facebook-digest256:</p>
+    <img
+       src="https://social-tracking-protection-facebook-digest256.dummytracker.org/test_not_blocked.png"
+       onerror="this.onerror=null;this.src='https://not-a-tracker.dummytracker.org/test_blocked.png'">
+    <br/>
+    <p>social-tracking-protection-linkedin-digest256:</p>
+    <img
+       src="https://social-tracking-protection-linkedin-digest256.dummytracker.org/test_not_blocked.png"
+       onerror="this.onerror=null;this.src='https://not-a-tracker.dummytracker.org/test_blocked.png'">
+    <br/>
+    <p>social-tracking-protection-twitter-digest256:</p>
+    <img
+       src="https://social-tracking-protection-twitter-digest256.dummytracker.org/test_not_blocked.png"
+       onerror="this.onerror=null;this.src='https://not-a-tracker.dummytracker.org/test_blocked.png'">
+    <br/>
+    <p><b>Fingerprinting (base-fingerprinting-track-digest256):</b></p>
+    <pre id="result">test not run</pre>
+    <script src="https://base-fingerprinting-track-digest256.dummytracker.org/tracker.js"
+      onerror="this.onerror=null;var result=document.getElementById('result');result.innerHTML='blocked';"
+      onload="this.onload=null;var result=document.getElementById('result');result.innerHTML='NOT blocked';"
+      ></script>
+    <br/>
+
+
+    <h1>Cookie blocking</h1>
+    <b>NOTE: If tracker blocking is enabled for STP domains, these tests will not work properly.</b>
+    <iframe height=0 width=0 src="https://social-tracking-protection-facebook-digest256.dummytracker.org/cookie_access_test.html?test_origin=senglehardt.com"></iframe>
+    <iframe height=0 width=0 src="https://social-tracking-protection-linkedin-digest256.dummytracker.org/cookie_access_test.html?test_origin=senglehardt.com"></iframe>
+    <iframe height=0 width=0 src="https://social-tracking-protection-twitter-digest256.dummytracker.org/cookie_access_test.html?test_origin=senglehardt.com"></iframe>
+
+    <p><h3>Social Tracking Protection Lists</h3>
+    * Facebook - `social-tracking-protection-facebook-digest256`: <pre id="social-tracking-protection-facebook-digest256"></pre>
+    * LinkedIn - `social-tracking-protection-linkedin-digest256`: <pre id="social-tracking-protection-linkedin-digest256"></pre>
+    * Twitter - `social-tracking-protection-twitter-digest256`: <pre id="social-tracking-protection-twitter-digest256"></pre>
+    </p>
+
+    <script>
+      function updateCookieStatus(statusMessage, list) {
+          var output = document.getElementById(list);
+          if (statusMessage === 'cookies') {
+            output.innerHTML = "Cookies not blocked";
+          } else if (statusMessage === 'no_cookies') {
+            output.innerHTML = "Cookies BLOCKED";
+          } else {
+            output.innerHTML = "Unrecognized status";
+          }
+      }
+      window.addEventListener("message", event => {
+        lists = [
+          'social-tracking-protection-facebook-digest256',
+          'social-tracking-protection-linkedin-digest256',
+          'social-tracking-protection-twitter-digest256'
+        ];
+        lists.forEach(list => {
+          if (event.origin === `https://${list}.dummytracker.org`) {
+            updateCookieStatus(event.data, list);
+          }
+        });
+      }, false);
+    </script>
+  </body>
+</html>
