@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Test for each list will say "Blocked" if Firefox is blocking resources from that list.</p>
+    <p>Fingerprinting (base-fingerprinting-track-digest256):</p>
+    <pre id="result">test not run</pre>
+    <script src="https://base-fingerprinting-track-digest256.dummytracker.org/tracker.js"
+      onerror="this.onerror=null;var result=document.getElementById('result');result.innerHTML='blocked';"
+      onload="this.onload=null;var result=document.getElementById('result');result.innerHTML='NOT blocked';"
+      ></script>
+  </body>
+</html>

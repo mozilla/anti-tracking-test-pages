@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>A simple page that embeds two tracking iframes that try to access storage
+    and include buttons to interact with the Storage Access API.</p>
+    <br />
+    <p>NOTE: you must have `dom.storage_access.enabled = true`.<p>
+    <p> If your testing the tracking cookie restrictions feature, you should also have:</p>
+    <p>* `urlclassifier.trackingAnnotationTable.testEntries = storage-access.englehardt-tracker.com`</p>
+    <p>* `network.cookie.cookieBehavior = 4`</p>
+    <iframe width=500 height=1000 src="https://storage-access.englehardt-tracker.com/storage_access_api.html"></iframe>
+    <iframe width=500 height=1000 src="https://storage-access.englehardt-tracker.com/storage_access_api.html"></iframe><br />
+    <p> Access denied? Try <a rel=noopener target=_blank href="https://storage-access.englehardt-tracker.com/index.html">interacting with the tracker first</a>. Note that this link <b>does not</b> have an opener relationship, so it shouldn't lead to storage activation by heuristic.</p>
+  </body>
+</html>

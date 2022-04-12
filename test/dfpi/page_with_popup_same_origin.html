@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <style>
+      .column {
+        float: left;
+        width: 50%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+        <h3>englehardt-tracker.com iframe</h3>
+        <iframe width=500 height=1000 src="https://englehardt-tracker.com/set_storage_stable.html"></iframe>
+      </div>
+      <div class="column">
+        <h3>senglehardt.com iframe</h3>
+        <iframe width=500 height=1000 src="https://senglehardt.com/test/dfpi/set_storage_stable.html"></iframe>
+      </div>
+    </div>
+    <p>Click
+    <button onclick="window.open('https://senglehardt.com/test/dfpi/page_with_popup_same_origin.html', '_blank', 'location,width=1200,height=900');">
+      here
+    </button>
+    to open a pop-up to senglehardt.com via window.open.
+    </p>
+    <p>
+    Click
+    <a target=_blank rel=opener href="https://senglehardt.com/test/dfpi/page_with_popup_same_origin.html">
+      here
+    </a>
+    to open a pop-up to senglehardt.com via target=_blank AND rel=opener.
+    </p>
+    <p>
+    Click
+    <a target=_blank href="https://senglehardt.com/test/dfpi/page_with_popup_same_origin.html">
+      here
+    </a>
+    to open a pop-up to senglehardt.com via target=_blank.
+    </p>
+    <p>
+    Click
+    <a href="https://senglehardt.com/test/dfpi/page_with_popup_same_origin.html">
+      here
+    </a>
+    to navigate to senglehardt.com.
+    </p>
+  </body>
+</html>

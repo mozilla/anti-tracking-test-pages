@@ -1,0 +1,66 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>This page embeds several "tracking" iframes that display the referrer
+    accessible through `document.referrer`. Each iframe has a different inline
+    Referrer policy set. See the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">The Referrer-Policy MDN page</a>
+    for more info.</p>
+
+    <p>For this test page to work correctly, you must set the custom pref `urlclassifier.trackingAnnotationTable.testEntries = referrer.englehardt-tracker.com`</p>
+
+    <h3>No explicit policy</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>no-referrer</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="no-referrer" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="no-referrer" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>no-referrer-when-downgrade</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="no-referrer-when-downgrade" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="no-referrer-when-downgrade" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>origin</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="origin" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="origin" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>origin-when-cross-origin</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="origin-when-cross-origin" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="origin-when-cross-origin" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>same-origin</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="same-origin" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="same-origin" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>strict-origin</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="strict-origin" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="strict-origin" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>strict-origin-when-cross-origin</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="strict-origin-when-cross-origin" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="strict-origin-when-cross-origin" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+
+    <h3>unsafe-url</h3>
+    <h5>Non-tracker (englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="unsafe-url" src='https://englehardt-tracker.com/get_referrer.html'></iframe>
+    <h5>Tracker (referrer.englehardt-tracker.com)</h5>
+    <iframe width=1000 referrerpolicy="unsafe-url" src='https://referrer.englehardt-tracker.com/get_referrer.html'></iframe>
+  </body>
+</html>
