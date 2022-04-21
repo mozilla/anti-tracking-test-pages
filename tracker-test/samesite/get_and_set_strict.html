@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    This test page tries to set and retrieve a sameSite=Strict cookie.
+    <br>
+    <br>
+    Value of cookies read with document.cookie:
+    <pre id="cookie-result"></pre>
+
+    <script>
+      document.cookie = "a=b; SameSite=Strict; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+      var pre = document.getElementById('cookie-result');
+      pre.innerHTML=document.cookie;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <button onclick="setStrictCookie()">Set Strict Cookie</button>
+    <pre id="strict-cookie-result"></pre>
+    <button onclick="setLaxCookie()">Set Lax Cookie</button>
+    <pre id="lax-cookie-result"></pre>
+    <button onclick="setNoneCookie()">Set None Cookie</button>
+    <pre id="none-cookie-result"></pre>
+    <script>
+      function setStrictCookie() {
+        var rand = Math.random();
+        document.cookie = "samesite_strict="+rand+"; Path=/; SameSite=Strict; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+        var pre = document.getElementById('strict-cookie-result');
+        pre.innerHTML="Set samesite=Strict cookie with value: "+rand;
+      }
+      function setLaxCookie() {
+        var rand = Math.random();
+        document.cookie = "samesite_lax="+rand+"; Path=/; SameSite=Lax; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+        var pre = document.getElementById('lax-cookie-result');
+        pre.innerHTML="Set samesite=Lax cookie with value: "+rand;
+      }
+      function setNoneCookie() {
+        var rand = Math.random();
+        document.cookie = "samesite_none="+rand+"; Path=/; SameSite=None; expires=Fri, 31 Dec 9999 23:59:59 GMT; Secure";
+        var pre = document.getElementById('none-cookie-result');
+        pre.innerHTML="Set samesite=None cookie with value: "+rand;
+      }
+    </script>
+  </body>
+</html>

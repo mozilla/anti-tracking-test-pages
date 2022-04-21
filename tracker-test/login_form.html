@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <script>
+      document.body.addEventListener('submit', function ajax(e){
+        e.preventDefault();
+        setTimeout(function(){
+            var parentNode = e.target.parentNode;
+            parentNode.removeChild(e.target);
+            history.replaceState({success:true}, 'title', "login_form.html");
+        }, 1);
+      }, false);
+    </script>
+
+    <form action="endpoint.html" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Fake Email address</label>
+        <input type="email" class="form-control" id="demo-email" aria-describedby="emailHelp" placeholder="Enter a fake email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Fake Password</label>
+        <input type="password" class="form-control" id="demo-pwd" placeholder="Enter a fake password">
+      </div>
+      <div id='login'></div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    </body>
+</html>

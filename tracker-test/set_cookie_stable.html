@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+      <p><pre id="message"></pre></p>
+      <div id="set_message"><p>Trying to set cookie with value:</p><pre id='cookie_set'></pre></div>
+      <p>Your current non-HTTPOnly cookies are:</p><pre id='cookie_read'></pre>
+      <button onclick="setCookies(false);">rerun</button>
+      <button onclick="setCookies(true);">reset</button>
+      <script>
+        function setCookies(reset=false) {
+          var cookies = document.cookie;
+          var msg = document.getElementById('message');
+          if (cookies === "" || reset === true) {
+            msg.innerHTML = 'Cookies not yet set, setting a new cookie...';
+
+            var set_message_div = document.getElementById('set_message');
+            set_message_div.style = "";
+
+            // Try to set a cookie
+            var randVal = Math.random();
+            var set = document.getElementById('cookie_set');
+            set.innerHTML = randVal;
+            document.cookie = 'testPageCookie='+randVal+'; SameSite=None; Secure';
+
+            // Get a cookie
+            cookies = document.cookie;
+            var get = document.getElementById('cookie_read');
+            get.innerHTML = cookies;
+          } else {
+            msg.innerHTML = 'Cookies already set, NOT settings a new cookie...';
+
+            var set_message_div = document.getElementById('set_message');
+            set_message_div.style = "display: none;";
+
+            var get = document.getElementById('cookie_read');
+            get.innerHTML = cookies;
+          }
+        }
+        setCookies(false);
+      </script>
+    </body>
+</html>

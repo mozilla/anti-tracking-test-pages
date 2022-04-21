@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta http-equiv="refresh" content="5;https://englehardt-tracker.com/samesite/get_cookies_meta_refresh.html">
+  </head>
+  <body>
+    This page will refresh via meta every 5 seconds
+    <br>
+    Value of cookies read with document.cookie:
+    <pre id="cookie-result"></pre>
+    <img src="https://englehardt-tracker.com/favicon.ico">
+
+    <script>
+      var pre = document.getElementById('cookie-result');
+      pre.innerHTML=document.cookie;
+    </script>
+  </body>
+</html>
