@@ -5,13 +5,13 @@ This site was orignally self hosted by Steven Englehardt at `senglehardt.com` us
 
 This site contained 2 subdomains which redirected back to `senglehardt.com`: `test.senglehardt.com`, `storage.senglehardt.com`
 
-The sibling "Tracker Test" site was hosted at `englehardt-tracker.com` using this repo: https://github.com/englehardt/trackertest 
+The sibling "Tracker Test" site was hosted at `anti-tracker-test.com` using this repo: https://github.com/englehardt/trackertest 
 
-It's subdomains are: `known-tracker.englehardt-tracker.com`
+It's subdomains are: `known-tracker.anti-tracker-test.com`
 
 The current mappings are below, urls and subdomains are hosted in netlify:
 - senglehardt.com -> mozilla-anti-tracking.com
-- englehardt-tracker.com -> tracker-test.com
+- anti-tracker-test.com -> tracker-test.com
 
 
 Jira issues related to this effort:
